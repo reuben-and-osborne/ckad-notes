@@ -1,3 +1,5 @@
+# Application Design and Build
+---
 ## Building Container Images
 ### What is a container image?
 An image is a lightweight, standalone file that contains the software and executables needed to run a container.
@@ -90,7 +92,7 @@ An init container is a container that runs to complete a task before a Pod's mai
 - Separate Image - perform start up tasks using software the main container doesn't have or need.
 - Delay startup - delay main container until certain conditions are met.
 - Security - 'sensitive startups' like consuming secrets. 
-
+---
 ## Volumes 
 A volume provides external storage for containers outside the container file system. 
 

@@ -1,3 +1,5 @@
+# Application Deployment
+---
 ## What is a deployment? 
 A **deployment** defines a desired state for a set of replica Pods. Kubernetes constatly works to maintain that desired state by creating, deleting and replacing those Pods. 
 
@@ -34,7 +36,7 @@ kubectl scale deployment/nginx-deployment --replicas=4
 ```
 kubectl edit deployment nginx-deployment
 ```
-
+---
 ## Rolling Update
 A **rolling update** allows you to change a Deployment's Pod template, gradually replacing replicas with zero downtime.
 
@@ -49,7 +51,7 @@ Undo to the previous deployment.
 ```
 kubectl rollout undo <deployment>
 ```
-
+---
 ## Deploying with Blue/Green and Canary Strategies 
 
 What is a **Deployment Strategy**?
@@ -64,7 +66,7 @@ A Deployment strategy is a method of rolling out new code that is used to achiev
 - again uses 2 environments
 - a portion of the user base is directed to the new code in order to expose any issues
 - then the changes are rolled out to everyone else
-
+---
 ## Helm 
 **Helm** is a package managment tool for applications that run in Kubernetes. It allows you to easily install software in your cluster, alongside the necessary Kubernetes configuration. 
 
