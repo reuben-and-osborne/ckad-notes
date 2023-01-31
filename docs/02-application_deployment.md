@@ -1,5 +1,4 @@
 # Application Deployment
----
 ## What is a deployment? 
 A **deployment** defines a desired state for a set of replica Pods. Kubernetes constatly works to maintain that desired state by creating, deleting and replacing those Pods. 
 

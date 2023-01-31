@@ -1,5 +1,4 @@
 # Application Observability and Maintenance
----
 ## Understanding the API Deprecation Policy
 ### Kubernetes API
  The **Kubernetes API** is the primary interface for Kubernetes. Running a command like `kubectl get pods` talks to the API on the control plane. 

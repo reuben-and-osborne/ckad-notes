@@ -1,5 +1,4 @@
 # Application Design and Build
----
 ## Building Container Images
 ### What is a container image?
 An image is a lightweight, standalone file that contains the software and executables needed to run a container.

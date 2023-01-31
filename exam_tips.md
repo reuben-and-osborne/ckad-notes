@@ -59,7 +59,7 @@
 1. API deprecation is the process of announcing changes to an API early, giving users time to update their code and/or tools.
 2. Kubernetes removes support for deprecated APIs that are in GA (general availability) only after 12 months or 3 Kubernetes releases, whichever is longer.
 
-# Probes:
+# Probes and Health Checks:
 1. Liveness probes check if a container is healthy so that it can be restarted if it is not.
 2. Readiness probes check whether a container is fully started up and ready to be used.
 3. Probes can run a command inside the container, make an HTTP request, or attempt a TCP socket connection to determine container status. 
@@ -73,4 +73,57 @@
 2. You can view the container log using `kubectl logs`
 3. For multi-container Pods, use the `-c` to specify which container's logs you want to view.
 
+# Debugging:
+1. Use `kubectl get pods` to check the status of all Pods in a Namespace. Use the `--all-namespace` flag if you don't knoe what Namespace to look in.
+2. Use kubectl describe to get detailed information about Kubernetes objects.
+3. Use `kubectl logs` to retrieve container logs.
+4. Check cluster-level logs if you still cannot located any relevant information.
 
+# Custom Resources (CRD)
+1. Custom Resources are extensions of the Kubernetes API.
+2. A CustomResourceDefinition defines a custom resource.
+
+# ServiceAccounts:
+1. ServiceAccounts allow processes within containers to authenticate with the Kubernetes API server.
+2. You can set the Pod's ServiceAccount with serviceAccountName in the Pod spec.
+3. The Pod's ServiceAccount token is automatically mounted to the Pod's containers.
+
+# Kubernetes Auth:
+1. Normal users usually authenticate using client certificates, while ServiceAccounts usually use tokens. 
+2. Authorization for both normal users and ServiceAccounts can be managed using role-based access control (RBAC).
+3. Roles and ClusterRoles define a specific set of permissions
+4. RoleBindings and ClusterRoleBindings tie Roles or ClusterRoles to users/serviceAccounts.
+# Addmission Control:
+1. Admission controlles intercept requests to the Kubernetes API and can be used to validate and/or modify them.
+2. You can enable addmission controllers using the `--enable-admission-plugins` flag or kube-apiserver.
+# Compute Resource Management
+1. A resource request informs the cluster of the expected resoruce usage for a container. It is used to select a Node that has enough resources available to run the pod. 
+2. A resource limit sets an upper limit on how many resources a container can use. IF the container process attempts to go above this limit, the container process will be terminated.
+3. A ResourceQuota limits the amount of resoruces that can be used within a specific Namespace. If a user attempts to create or modify objects in that Namespace such that the quota would be exceeded, the request will be denied. 
+
+# Application Configuration
+1. A ConfigMap stores configuration data that can be passed to containers. 
+2. A Secret is designed to store sensitive configuration data such as passwords or API keys.
+3. Data from both ConfigMaps and Secrets can be passed into containers using either a volume mount or environment variable.
+
+# Security Context
+1. A container's security context allows you to control advanced security related settings for the container.
+2. Set the container's user ID (UID) and group ID (GID) with `securityContext.runAsUser` and `securityContext.runAsGroup`.
+3. Enable or disable privilege escalation with `securityContext.allowPrivilegeEscalation`.
+4. Make the container root filesystem read-only with `ssecurityContext.readOnlyRootFilesystem`.
+
+# Network Policies
+1. If a Pod is not selected by any NetworkPolicies, the Pod is non-isolated, and all traffic is allowed.
+2. If a Pod is selected by any NetworkPolicy, traffic will be blocked unless it is allowed by at least 1 NetworkPolicy that selects the Pod. 
+3. If you combine a namespaceSelector and a podSelector within the same rule, the traffic must meet both the Pod- and Namespace- related conditions in order to be allowed.
+4. Even if a NetworkPolicy allows outgoing traffic from the source Pod, NetworkPolicies could still block the same traffic when it is incoming to the destination Pod. 
+
+# Services
+1. Services allow you to expose an application running in multiple Pods.
+2. ClusterIP Services expose the Pods to other applications within the cluster.
+3. NodePort Services expose the Pods externally using a port that listens on every node in the cluster.
+
+# Ingress
+1. An Ingress manages external access to Kubernetes applications.
+2. An Ingress routes to 1 or more Kubernetes Services.
+3. You need an Ingress controller to implement the Ingress functionality. Which controller you use determines the specifics of how the Ingress will work.
