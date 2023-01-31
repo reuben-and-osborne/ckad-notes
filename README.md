@@ -1,6 +1,8 @@
 # Certified Kubernetes Application Developer
 These are notes on the 5 sections of the A Cloud Guru CKAD course. It also includes exam tips, which can be used like revision cards.
 
+- [Exam Tips](/exam_tips.md)
+
 ## Contents
 - [01: Application Design and Build](/docs/01-application_design_and_build.md)
   - [Building Container Images](/docs/01-application_design_and_build.md#building-container-images)
