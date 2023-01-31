@@ -72,5 +72,5 @@ A Deployment strategy is a method of rolling out new code that is used to achiev
 ### Helm Charts
 - A **Helm Chart** is a Helm software packages. It contains all the Kubernetes resource definitions needed to get the application up and running in the cluster.
 
-###
+### Helm Repositories
 - A **Helm Repository** is a collection of available Charts. You can use it to browse and download Charts vefore installing them in your cluster.  

@@ -3,6 +3,7 @@
 ## Kubernetes Networking
 The Kubernetes cluster uses a *virtual network* to allows Pods to communitate with one another seamlessly, even if they are on different nodes.
 
+---
 ## What is a NetworkPolicy?
 - A **NetworkPolicy** is a Kubernetes object that allows you to restrict network traffic to and from Pods within the cluster network.
 - Use NetworkPolicies to block unnecessary or unexpected network traffic and make your applications more secure.

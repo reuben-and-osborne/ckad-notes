@@ -2,7 +2,7 @@
 ## Understanding the API Deprecation Policy
 ### Kubernetes API
  The **Kubernetes API** is the primary interface for Kubernetes. Running a command like `kubectl get pods` talks to the API on the control plane. 
-
+---
  ## Deprecation
  **Deprecation** is the process of providing advanced warning of changes to an API, giving consumers of that API time to update their code and/or processes.
 
@@ -15,12 +15,12 @@
 ### What is a Probe?
 Probes are part of the container spec in Kubernetes. They allow you to customize how Kubernetes detects the state of a container.
 
-## Types of Probes:
+### Types of Probes:
 1. **Liveness** - Liveness probes check whether a container is healthy so that it can be restarted if it becomes unheathly.
 2. **Readiness** - Readiness probes determine when a container is fully started up and ready to receive user traffic. 
 3. **Startup** - Startup probes check contianer health during startup for slow-starting containers.
 
-## Liveness Example
+### Liveness Example
 Check whether our busy box container can respond to a simple echo command.
 ```
 apiVersion: v1
@@ -39,7 +39,7 @@ spec:
       periodSeconds: 5
 ```
 
-## Readiness Example:
+### Readiness Example:
 Check whether our nginx container is ready by making a http GET request. 
 ```
 apiVersion: v1
@@ -69,12 +69,12 @@ Monitoring is the process of gathering data (metrics) about the performance of y
 - **Access metric data**: The `kubectl top` command can be used to view metric data once it is gathered by the Metrics server.
 
 ---
-# Accessing Container Logs
-## Container Logging
+## Accessing Container Logs
+### Container Logging
 Kubernetes stores the stdout/stderr console output for each container in the container log.
 You can then view the log with the `kubectl logs <Pod name>` command.
 
-## Multi-Container logging
+### Multi-Container logging
 For pods with multiple containers running, use the `-c` flag to specify the container. `kubectl logs <pod name> -c <container name>`
 
 ---
